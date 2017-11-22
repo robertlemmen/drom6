@@ -1,0 +1,331 @@
+#!/usr/bin/env perl6
+
+use v6;
+
+use XML;
+
+sub short-name($n) {
+    my $parts = $n.name.split(':');
+    if ($parts.elems == 1) {
+        return $parts;
+    }
+    elsif ($parts.elems == 2) {
+        return $parts[1];
+    }
+    else {
+        die;
+    }
+}
+
+class XMIRoot {
+    has $.package is rw;
+
+    method dump() {
+        $!package.dump(0);
+    }
+}
+
+module UML {
+    class Class {
+        has $.name is rw;
+        has $.isAbstract is rw;
+        has @.ownedComment is rw;
+        has @.ownedRule is rw;
+        has @.ownedAttribute is rw;
+        has @.ownedOperation is rw;
+        has @.generalization is rw;
+        method dump($indent) {
+            say ('  ' x $indent) ~ "Class $!name";
+            for @!generalization -> $gen {
+                $gen.dump($indent+1);
+            }
+            for @!ownedAttribute -> $attr {
+                $attr.dump($indent+1)
+            }
+        }
+    }
+    class Comment {
+        has $.annotatedElement is rw;
+    }
+    class Constraint {
+        has $.name is rw;
+        has $.ownedComment is rw;
+        has $.constrainedElement is rw;
+        has $.specification is rw;
+    }
+    class Package {
+        has $.name is rw;
+        has $.URI is rw;
+        has @.packageImport is rw;
+        has @.packagedElement is rw;
+        method dump($indent) {
+            say ('  ' x $indent) ~ "Package $!name " ~ ($!URI // '');
+            for @!packageImport -> $imp {
+                $imp.dump($indent+1)
+            }
+            for @!packagedElement -> $elem {
+                $elem.dump($indent+1);
+            }
+        }
+    }
+    class PackageImport {
+        has $.importedPackage is rw;
+        method dump($indent) {
+            say ('  ' x $indent) ~ "PackageImport " ~ ($!importedPackage // '??');
+        }
+    }
+    class Property {
+        has $.name is rw;
+        has $.ownedComment is rw;
+        has $.type is rw;
+        has $.isReadOnly is rw;
+        has $.isOrdered is rw;
+        has $.isUnique is rw;
+        has $.isDerived is rw;
+        has $.isDerivedUnion is rw;
+        has $.subsettedProperty is rw;
+        has $.association is rw;
+        has $.aggregation is rw;
+        has $.upperValue is rw;
+        has $.lowerValue is rw;
+        has $.defaultValue is rw;
+        has $.redefinedProperty is rw;
+        method dump($indent) {
+            say ('  ' x $indent) ~ "Property $!name : " ~ ($!type // '??');
+        }
+    }
+    class Parameter {
+        has $.name is rw;
+        has $.type is rw;
+        has $.direction is rw;
+        has $.isUnique is rw;
+        has $.isOrdered is rw;
+        has $.lowerValue is rw;
+        has $.upperValue is rw;
+        method dump($indent) {
+            say ('  ' x $indent) ~ "Parameter $!name : " ~ ($!type // '??');
+        }
+    }
+    class Enumeration {
+        has $.name is rw;
+        has @.ownedComment is rw;
+        has @.ownedLiteral is rw;
+        method dump($indent) {
+            say ('  ' x $indent) ~ "Enumeration $!name";
+        }
+    }
+    class EnumerationLiteral {
+        has $.name is rw;
+        has @.ownedComment is rw;
+        method dump($indent) {
+            say ('  ' x $indent) ~ "EnumerationLiteral $!name";
+        }
+    }
+    class Operation {
+        has $.name is rw;
+        has $.isQuery is rw;
+        has $.isAbstract is rw;
+        has $.bodyCondition is rw;
+        has @.ownedParameter is rw;
+        has @.ownedRule is rw;
+        has @.ownedComment is rw;
+        has $.precondition is rw;
+        has $.redefinedOperation is rw;
+    }
+    class Association {
+        has $.name is rw;
+        has $.isDerived is rw;
+        has @.ownedComment is rw;
+        has $.generalization is rw;
+        has $.ownedEnd is rw;
+        has $.memberEnd is rw;
+        method dump($indent) {
+            say ('  ' x $indent) ~ "Association $!name";
+        }
+    }
+    class OpaqueExpression {
+        has $.name is rw;
+        has $.language is rw;
+        has @.ownedComment is rw;
+    }
+    class Generalization {
+        has $.general is rw;
+        method dump($indent) {
+            say ('  ' x $indent) ~ "General: $.general";
+        }
+    }
+    class InstanceValue {
+        has $.instance is rw;
+        has $.type is rw;
+    }
+    class LiteralInteger {
+        has $.value is rw;
+    }
+    class LiteralUnlimitedNatural {
+        has $.value is rw;
+    }
+    class LiteralBoolean {
+        has $.value is rw;
+    }
+    class PrimitiveType {
+        has $.name is rw;
+        has @.ownedComment is rw;
+        method dump($indent) {
+            say ('  ' x $indent) ~ "PrimitiveType $!name";
+        }
+    }
+    our $types = {
+        'Class' => Class,
+        'Comment' => Comment,
+        'Constraint' => Constraint,
+        'Package' => Package,
+        'PackageImport' => PackageImport,
+        'Property' => Property,
+        'Parameter' => Parameter,
+        'Enumeration' => Enumeration,
+        'EnumerationLiteral' => EnumerationLiteral,
+        'Operation' => Operation,
+        'Association' => Association,
+        'OpaqueExpression' => OpaqueExpression,
+        'Generalization' => Generalization,
+        'PrimitiveType' => PrimitiveType,
+        'InstanceValue' => InstanceValue,
+
+        'LiteralInteger' => LiteralInteger,
+        'LiteralUnlimitedNatural' => LiteralUnlimitedNatural,
+        'LiteralBoolean' => LiteralBoolean,
+    }
+}
+
+my $namespaces = {
+    'http://www.omg.org/spec/UML/20131001' => $UML::types;
+}
+
+sub construct($type, $node) {
+    my ($ns, $name) = $type.split(':');
+    $ns = $node.nsURI($ns);
+    if $namespaces{$ns}:exists {
+        my $types-hash = $namespaces{$ns};
+        if $types-hash{$name}:exists {
+            return $types-hash{$name}.new;
+        }
+    }
+    say "! Unknown type $type ($ns, $name)";
+    return Nil;
+}
+
+sub get-attribute($object, $attrib-name) {
+    for $object.^attributes -> $a {
+        my $name = $a.name;
+        $name = ~$name.substr(2);
+        if $name eq $attrib-name {
+            return $a;
+        }
+    }
+    return Nil;
+}
+
+my %element-by-id = ();
+my @pending-actions = ();
+
+# XXX sometimes we need to look up the value of a property by it's name (e.g. importedPackage), 
+# sometimes the string in the XML is the verbaitm value. how do we know which is which?
+sub walk($n, $parent = Nil, $package-uri is copy = '', $indent = 0,) {
+    if ($n ~~ XML::Element) {
+        my $xmi-prefix = $n.nsPrefix('http://www.omg.org/spec/XMI/20131001');
+        if $n.name eq ($xmi-prefix ~ ':XMI') {
+            # synthetic top-level
+            my $root = XMIRoot.new;
+            for $n.nodes -> $child {
+                walk($child, $root, $package-uri, $indent);
+            }
+            return $root;
+        }
+        elsif defined $n.attribs{'href'} {
+            say "## href lookup " ~ short-name($n) ~ " -> " ~ $n.attribs{'href'} ~ "...";
+            push @pending-actions, sub {
+                say "### deferred href lookup " ~ short-name($n) ~ " -> " ~ $n.attribs{'href'} ~ "...";
+            };
+            # XXX these sometimes also have a xmi:type, we could check that what we looked up 
+            # is of that type..
+        }
+        elsif defined $n.attribs{$xmi-prefix ~ ':type'} {
+#            say (' ' x $indent) ~ '# ' ~ short-name($n) ~ ' ' ~ $n.attribs{$xmi-prefix ~ ':type'};
+            my $element = construct($n.attribs{$xmi-prefix ~ ':type'}, $n);
+            if defined $element {
+                for $n.attribs.kv -> $k, $v {
+                    if $k eq 'URI' {
+                        $package-uri = $v;
+                    }
+                    if $k eq ($xmi-prefix ~ ':id') {
+                        my $fqid = $package-uri ~ '#' ~ $v;
+                        %element-by-id{$fqid} = $element;
+                    }
+                    if ! $k.contains(':') {
+                        my $attrib = get-attribute($element, $k);
+                        if defined $attrib {
+                            # XXX this assumes these are scalars, but I guess they will be LiteralString 
+                            # and the like...
+                            $attrib.set_value($element, $v);
+                        }
+                        else {
+                            say "! property $k does not exist on parent of type " ~ $element.WHAT.perl;
+                        }
+                    }
+                }
+                my $pname = $n.name;
+                # XXX resolve prefix, only do if parent is of type XMIRoot
+                if ($pname eq 'uml:Package') {
+                    $pname = 'package';
+                }
+                # XXX better handling of all cases, arity etc. perhaps just try/catch?
+                if defined $parent {
+                    my $attrib = get-attribute($parent, $pname);
+                    if defined $attrib {
+                        if ($attrib.type.WHAT ~~ Positional) {
+                            $attrib.get_value($parent).push($element);
+                        }
+                        else {
+                            if defined $attrib.get_value($parent) {
+                                say "! property $pname on parent of type " ~ $parent.WHAT.perl ~ " may be set multiple times but is not an array...";
+                            }
+                            $attrib.set_value($parent, $element);
+                        }
+                        # XXX is this all there is?
+                    }
+                    else {
+                        say "! property $pname does not exist on parent of type " ~ $parent.WHAT.perl;
+                    }
+                }
+                else {
+                    say "! trying to set property $pname but got no parent";
+                }
+                for $n.nodes -> $child {
+                    walk($child, $element, $package-uri, $indent + 1);
+                }
+            }
+        }
+    }
+}
+
+
+say '-=[ drom6 test driver ]=-';
+
+say 'loading XMI file...';
+my $doc = from-xml-file('spec/UML_2.5/PrimitiveTypes.xmi');
+#my $doc = from-xml-file('test.xmi');
+my $model = walk($doc.root);
+
+$doc = from-xml-file('spec/UML_2.5/UML.xmi');
+#my $doc = from-xml-file('test.xmi');
+$model = walk($doc.root);
+
+for @pending-actions -> $task {
+    $task();
+}
+@pending-actions = ();
+
+say "--------------->";
+$model.dump;
+
+say 'done';

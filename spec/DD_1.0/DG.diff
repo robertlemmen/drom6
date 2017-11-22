@@ -1,0 +1,572 @@
+--- DG.cmof.orig	2014-05-09 15:08:01.000000000 +0100
++++ DG.cmof	2014-05-09 15:11:16.000000000 +0100
+@@ -1,11 +1,11 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:cmof="http://schema.omg.org/spec/MOF/2.0/cmof.xml">
++<xmi:XMI xmi:version="2.1" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:cmof="http://schema.omg.org/spec/MOF/2.0/cmof.xml">
+   <cmof:Package xmi:id="_0" name="DG" uri="http://www.omg.org/spec/DD/20110901/DG">
+     <ownedComment xmi:type="cmof:Comment" xmi:id="_ownedComment.0" annotatedElement="_0">
+       <body>The Diagram Graphics (DG) package contains a model of graphical primitives that can be instantiated when mapping from a language abstract syntax models and diagram interchange (DI) models to visual presentations. The mapping effectively defines the concrete syntax of a language. This specification does not restrict how the mappings are done, or what languages are used to define them.</body>
+     </ownedComment>
+     <packageImport xmi:type="cmof:PackageImport" xmi:id="_packageImport.0" importingNamespace="_0">
+-      <importedPackage xmi:type="cmof:Package" href="DC.cmof#_0"/>
++      <importedPackage xmi:type="cmof:Package" href="http://www.omg.org/spec/DD/20110901/DC.cmof#_0"/>
+     </packageImport>
+     <ownedMember xmi:type="cmof:Class" xmi:id="RadialGradient" name="RadialGradient" superClass="Gradient">
+       <ownedComment xmi:type="cmof:Comment" xmi:id="RadialGradient-_ownedComment.0" annotatedElement="RadialGradient">
+@@ -42,31 +42,31 @@
+         <ownedComment xmi:type="cmof:Comment" xmi:id="RadialGradient-centerX-_ownedComment.0" annotatedElement="RadialGradient-centerX">
+           <body>a real number (>=0 and >=1) representing a ratio of the graphical element's width that is the x center point of the gradient.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Real"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Real"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="RadialGradient-centerY" name="centerY" visibility="public" default="0.5">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="RadialGradient-centerY-_ownedComment.0" annotatedElement="RadialGradient-centerY">
+           <body>a real number (>=0 and >=1) representing a ratio of the graphical element's width that is the y center point of the gradient.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Real"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Real"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="RadialGradient-radius" name="radius" visibility="public" default="0.5">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="RadialGradient-radius-_ownedComment.0" annotatedElement="RadialGradient-radius">
+           <body>a real number (>=0 and >=1) representing a ratio of the graphical element's size that is the radius of the gradient.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Real"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Real"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="RadialGradient-focusX" name="focusX" visibility="public" default="0.5">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="RadialGradient-focusX-_ownedComment.0" annotatedElement="RadialGradient-focusX">
+           <body>a real number (>=0 and >=1) representing a ratio of the graphical element's width that is the x focus point of the gradient.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Real"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Real"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="RadialGradient-focusY" name="focusY" visibility="public" default="0.5">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="RadialGradient-focusY-_ownedComment.0" annotatedElement="RadialGradient-focusY">
+           <body>a real number (>=0 and >=1) representing a ratio of the graphical element's width that is the y focus point of the gradient.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Real"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Real"/>
+       </ownedAttribute>
+     </ownedMember>
+     <ownedMember xmi:type="cmof:Class" xmi:id="Pattern" name="Pattern" superClass="Fill">
+@@ -77,7 +77,7 @@
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Pattern-bounds-_ownedComment.0" annotatedElement="Pattern-bounds">
+           <body>the bounds of the pattern that define a private coordinate system for the pattern's tile.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:DataType" href="DC.cmof#Bounds"/>
++        <type xmi:type="cmof:DataType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Bounds"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="Pattern-tile" name="tile" visibility="public" type="GraphicalElement" isComposite="true" association="A_tile_pattern">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Pattern-tile-_ownedComment.0" annotatedElement="Pattern-tile">
+@@ -102,25 +102,25 @@
+         <ownedComment xmi:type="cmof:Comment" xmi:id="LinearGradient-x1-_ownedComment.0" annotatedElement="LinearGradient-x1">
+           <body>a real number (>=0 and >=1) representing a ratio of the graphical element's width that is the x start point of the gradient.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Real"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Real"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="LinearGradient-x2" name="x2" visibility="public" default="1">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="LinearGradient-x2-_ownedComment.0" annotatedElement="LinearGradient-x2">
+           <body>a real number (>=0 and >=1) representing a ratio of the graphical element's width that is the x end point of the gradient.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Real"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Real"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="LinearGradient-y1" name="y1" visibility="public" default="0">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="LinearGradient-y1-_ownedComment.0" annotatedElement="LinearGradient-y1">
+           <body>a real number (>=0 and >=1) representing a ratio of the graphical element's height that is the y start point of the gradient.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Real"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Real"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="LinearGradient-y2" name="y2" visibility="public" default="1">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="LinearGradient-y2-_ownedComment.0" annotatedElement="LinearGradient-y2">
+           <body>a real number (>=0 and >=1) representing a ratio of the graphical element's height that is the y end point of the gradient.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Real"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Real"/>
+       </ownedAttribute>
+     </ownedMember>
+     <ownedMember xmi:type="cmof:DataType" xmi:id="GradientStop" name="GradientStop">
+@@ -149,19 +149,19 @@
+         <ownedComment xmi:type="cmof:Comment" xmi:id="GradientStop-color-_ownedComment.0" annotatedElement="GradientStop-color">
+           <body>the color to use at this gradient stop.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:DataType" href="DC.cmof#Color"/>
++        <type xmi:type="cmof:DataType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Color"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="GradientStop-offset" name="offset" visibility="public" datatype="GradientStop">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="GradientStop-offset-_ownedComment.0" annotatedElement="GradientStop-offset">
+           <body>a real number (>=0 and&lt;=1) representing the offset of this gradient stop as a ratio of the distance between the start and end positions of the gradient.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Real"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Real"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="GradientStop-opacity" name="opacity" visibility="public" datatype="GradientStop" default="1">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="GradientStop-opacity-_ownedComment.0" annotatedElement="GradientStop-opacity">
+           <body>a real number (>=0 and&lt;=1) representing the opacity of the color at the stop. A value of 0 means totally transparent, while a value of 1 means totally opaque.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Real"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Real"/>
+       </ownedAttribute>
+     </ownedMember>
+     <ownedMember xmi:type="cmof:Class" xmi:id="Gradient" name="Gradient" isAbstract="true" superClass="Fill">
+@@ -242,7 +242,7 @@
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Canvas-backgroundColor-_ownedComment.0" annotatedElement="Canvas-backgroundColor">
+           <body>a color that is used to paint the background of the canvas itself. A backgroundColor value is exclusive with a backgroundFill value. If both are specified, the backgroundFill value is used. If none is specified, no fill is applied (i.e. the canvas becomes see-through).</body>
+         </ownedComment>
+-        <type xmi:type="cmof:DataType" href="DC.cmof#Color"/>
++        <type xmi:type="cmof:DataType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Color"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="Canvas-packagedFill" name="packagedFill" visibility="public" type="Fill" upper="*" lower="0" isComposite="true" association="A_fill_canvas">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Canvas-packagedFill-_ownedComment.0" annotatedElement="Canvas-packagedFill">
+@@ -273,13 +273,13 @@
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Marker-size-_ownedComment.0" annotatedElement="Marker-size">
+           <body>the size of the marker</body>
+         </ownedComment>
+-        <type xmi:type="cmof:DataType" href="DC.cmof#Dimension"/>
++        <type xmi:type="cmof:DataType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Dimension"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="Marker-reference" name="reference" visibility="public">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Marker-reference-_ownedComment.0" annotatedElement="Marker-reference">
+           <body>a point within the bounds of the marker that aligns exactly with the marked element's vertex.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:DataType" href="DC.cmof#Point"/>
++        <type xmi:type="cmof:DataType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Point"/>
+       </ownedAttribute>
+     </ownedMember>
+     <ownedMember xmi:type="cmof:Class" xmi:id="MarkedElement" name="MarkedElement" superClass="GraphicalElement">
+@@ -310,13 +310,13 @@
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Rectangle-bounds-_ownedComment.0" annotatedElement="Rectangle-bounds">
+           <body>the bounds of the rectangle in the x-y coordinate system.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:DataType" href="DC.cmof#Bounds"/>
++        <type xmi:type="cmof:DataType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Bounds"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="Rectangle-cornerRadius" name="cornerRadius" visibility="public" default="0">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Rectangle-cornerRadius-_ownedComment.0" annotatedElement="Rectangle-cornerRadius">
+           <body>a radius for the rectangle's rounded corners. When the radius is 0, the rectangle is drawn with sharp corners.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Real"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Real"/>
+       </ownedAttribute>
+     </ownedMember>
+     <ownedMember xmi:type="cmof:Class" xmi:id="Ellipse" name="Ellipse" superClass="GraphicalElement">
+@@ -327,13 +327,13 @@
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Ellipse-center-_ownedComment.0" annotatedElement="Ellipse-center">
+           <body>the center point of the ellipse in the x-y coordinate system.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:DataType" href="DC.cmof#Point"/>
++        <type xmi:type="cmof:DataType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Point"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="Ellipse-radii" name="radii" visibility="public">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Ellipse-radii-_ownedComment.0" annotatedElement="Ellipse-radii">
+           <body>a dimension that specifies the two radii of the ellipse (a width along the x-axis and a height along the y-axis)</body>
+         </ownedComment>
+-        <type xmi:type="cmof:DataType" href="DC.cmof#Dimension"/>
++        <type xmi:type="cmof:DataType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Dimension"/>
+       </ownedAttribute>
+     </ownedMember>
+     <ownedMember xmi:type="cmof:Class" xmi:id="Text" name="Text" superClass="GraphicalElement">
+@@ -344,19 +344,19 @@
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Text-data-_ownedComment.0" annotatedElement="Text-data">
+           <body>the text as a string of characters.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#String"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#String"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="Text-bounds" name="bounds" visibility="public">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Text-bounds-_ownedComment.0" annotatedElement="Text-bounds">
+           <body>the bounds inside which the text is rendered (possibly wrapped into multiple lines)</body>
+         </ownedComment>
+-        <type xmi:type="cmof:DataType" href="DC.cmof#Bounds"/>
++        <type xmi:type="cmof:DataType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Bounds"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="Text-alignment" name="alignment" visibility="public">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Text-alignment-_ownedComment.0" annotatedElement="Text-alignment">
+           <body>the text alignment when wrapped into multiple lines.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:Enumeration" href="DC.cmof#AlignmentKind"/>
++        <type xmi:type="cmof:Enumeration" href="http://www.omg.org/spec/DD/20110901/DC.cmof#AlignmentKind"/>
+       </ownedAttribute>
+     </ownedMember>
+     <ownedMember xmi:type="cmof:Class" xmi:id="Line" name="Line" superClass="MarkedElement">
+@@ -367,13 +367,13 @@
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Line-start-_ownedComment.0" annotatedElement="Line-start">
+           <body>the starting point of the line in the x-y coordinate system.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:DataType" href="DC.cmof#Point"/>
++        <type xmi:type="cmof:DataType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Point"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="Line-end" name="end" visibility="public">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Line-end-_ownedComment.0" annotatedElement="Line-end">
+           <body>the ending point of the line in the x-y coordinate system.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:DataType" href="DC.cmof#Point"/>
++        <type xmi:type="cmof:DataType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Point"/>
+       </ownedAttribute>
+     </ownedMember>
+     <ownedMember xmi:type="cmof:Class" xmi:id="Polyline" name="Polyline" superClass="MarkedElement">
+@@ -384,7 +384,7 @@
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Polyline-point-_ownedComment.0" annotatedElement="Polyline-point">
+           <body>a list of 2 or more points making up the polyline.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:DataType" href="DC.cmof#Point"/>
++        <type xmi:type="cmof:DataType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Point"/>
+       </ownedAttribute>
+     </ownedMember>
+     <ownedMember xmi:type="cmof:Class" xmi:id="Polygon" name="Polygon" superClass="MarkedElement">
+@@ -395,7 +395,7 @@
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Polygon-point-_ownedComment.0" annotatedElement="Polygon-point">
+           <body>a list of 3 or more points making up the polygon.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:DataType" href="DC.cmof#Point"/>
++        <type xmi:type="cmof:DataType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Point"/>
+       </ownedAttribute>
+     </ownedMember>
+     <ownedMember xmi:type="cmof:Class" xmi:id="Path" name="Path" superClass="MarkedElement">
+@@ -421,13 +421,13 @@
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Translate-deltaX-_ownedComment.0" annotatedElement="Translate-deltaX">
+           <body>a real number representing a translate delta along the x-axis. Both positive and negative values are allowed.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Real"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Real"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="Translate-deltaY" name="deltaY" visibility="public" datatype="Translate">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Translate-deltaY-_ownedComment.0" annotatedElement="Translate-deltaY">
+           <body>a real number representing a translate delta along the y-axis. Both positive and negative values are allowed.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Real"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Real"/>
+       </ownedAttribute>
+     </ownedMember>
+     <ownedMember xmi:type="cmof:DataType" xmi:id="Scale" name="Scale" general="Transform">
+@@ -447,13 +447,13 @@
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Scale-factorX-_ownedComment.0" annotatedElement="Scale-factorX">
+           <body>a real number (>=0) representing a scale factor along the x-axis.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Real"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Real"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="Scale-factorY" name="factorY" visibility="public" datatype="Scale">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Scale-factorY-_ownedComment.0" annotatedElement="Scale-factorY">
+           <body>a real number(>=0) representing a scale factor along the y-axis.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Real"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Real"/>
+       </ownedAttribute>
+     </ownedMember>
+     <ownedMember xmi:type="cmof:DataType" xmi:id="Rotate" name="Rotate" general="Transform">
+@@ -464,13 +464,13 @@
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Rotate-angle-_ownedComment.0" annotatedElement="Rotate-angle">
+           <body>a real number representing the angle (in degrees) of rotation. Both positive (clock-wise) and negative (counter-clock-wise) values are allowed.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Real"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Real"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="Rotate-center" name="center" visibility="public" lower="0" datatype="Rotate">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Rotate-center-_ownedComment.0" annotatedElement="Rotate-center">
+           <body>a point in the x-y coordinate system about which the rotation is performed. If the point is not specified, it is assumed to be the origin of the x-y coordinate system.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:DataType" href="DC.cmof#Point"/>
++        <type xmi:type="cmof:DataType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Point"/>
+       </ownedAttribute>
+     </ownedMember>
+     <ownedMember xmi:type="cmof:Association" xmi:id="A_startMarker_markedElement" name="A_startMarker_markedElement" visibility="private" memberEnd="MarkedElement-startMarker A_startMarker_markedElement-markedElement">
+@@ -488,13 +488,13 @@
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Skew-angleX-_ownedComment.0" annotatedElement="Skew-angleX">
+           <body>a real number representing the angle (in degrees) of skew along the x-axis. Both positive (clock-wise) and negative (counter-clock-wise) values are allowed.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Real"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Real"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="Skew-angleY" name="angleY" visibility="public" datatype="Skew">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Skew-angleY-_ownedComment.0" annotatedElement="Skew-angleY">
+           <body>a real number representing the angle (in degrees) of skew along the y-axis. Both positive (clock-wise) and negative (counter-clock-wise) values are allowed.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Real"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Real"/>
+       </ownedAttribute>
+     </ownedMember>
+     <ownedMember xmi:type="cmof:Association" xmi:id="A_midMarker_markedElement" name="A_midMarker_markedElement" visibility="private" memberEnd="MarkedElement-midMarker A_midMarker_markedElement-markedElement">
+@@ -508,19 +508,19 @@
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Image-source-_ownedComment.0" annotatedElement="Image-source">
+           <body>the URL of a referenced image file.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#String"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#String"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="Image-bounds" name="bounds" visibility="public">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Image-bounds-_ownedComment.0" annotatedElement="Image-bounds">
+           <body>the bounds within which the image is rendered.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:DataType" href="DC.cmof#Bounds"/>
++        <type xmi:type="cmof:DataType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Bounds"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="Image-isAspectRatioPreserved" name="isAspectRatioPreserved" visibility="public">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Image-isAspectRatioPreserved-_ownedComment.0" annotatedElement="Image-isAspectRatioPreserved">
+           <body>wether to preserve the aspect ratio of the image upon scaling, i.e. the same scale factor for width and height.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Boolean"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Boolean"/>
+       </ownedAttribute>
+     </ownedMember>
+     <ownedMember xmi:type="cmof:Class" xmi:id="ClipPath" name="ClipPath" superClass="Group">
+@@ -552,13 +552,13 @@
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Circle-center-_ownedComment.0" annotatedElement="Circle-center">
+           <body>the center point of the circle in the x-y coordinate system.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:DataType" href="DC.cmof#Point"/>
++        <type xmi:type="cmof:DataType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Point"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="Circle-radius" name="radius" visibility="public">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Circle-radius-_ownedComment.0" annotatedElement="Circle-radius">
+           <body>a real number (>=0) that represents the radius of the circle.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Real"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Real"/>
+       </ownedAttribute>
+     </ownedMember>
+     <ownedMember xmi:type="cmof:Class" xmi:id="Style" name="Style">
+@@ -619,79 +619,79 @@
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Style-fillColor-_ownedComment.0" annotatedElement="Style-fillColor">
+           <body>a color that is used to paint the enclosed regions of graphical element. A fillColor value is exclusive with a fill value. If both are specified, the fill value is used. If none is specified, no fill is applied (i.e. the element becomes see-through).</body>
+         </ownedComment>
+-        <type xmi:type="cmof:DataType" href="DC.cmof#Color"/>
++        <type xmi:type="cmof:DataType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Color"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="Style-fillOpacity" name="fillOpacity" visibility="public" lower="0">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Style-fillOpacity-_ownedComment.0" annotatedElement="Style-fillOpacity">
+           <body>a real number (>=0 and &lt;=1) representing the opacity of the fill or fillColor used to paint a graphical element. A value of 0 means totally transparent, while a value of 1 means totally opaque. The default is 1.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Real"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Real"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="Style-strokeWidth" name="strokeWidth" visibility="public" lower="0">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Style-strokeWidth-_ownedComment.0" annotatedElement="Style-strokeWidth">
+           <body>a real number (>=0) representing the width of the stroke used to paint the outline of a graphical element. A value of 0 specifies no stroke is painted. The default is 1.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Real"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Real"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="Style-strokeOpacity" name="strokeOpacity" visibility="public" lower="0">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Style-strokeOpacity-_ownedComment.0" annotatedElement="Style-strokeOpacity">
+           <body>a real number (>=0 and &lt;=1) representing the opacity of the stroke used for a graphical element. A value of 0 means totally transparent, while a value of 1 means totally opaque. The default is 1.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Real"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Real"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="Style-strokeColor" name="strokeColor" visibility="public" lower="0">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Style-strokeColor-_ownedComment.0" annotatedElement="Style-strokeColor">
+           <body>the color of the stroke used to paint the outline of a graphical element. The default is black (red=0, green=0, blue=0).</body>
+         </ownedComment>
+-        <type xmi:type="cmof:DataType" href="DC.cmof#Color"/>
++        <type xmi:type="cmof:DataType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Color"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="Style-strokeDashLength" name="strokeDashLength" visibility="public" isOrdered="true" isUnique="false" upper="*" lower="0">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Style-strokeDashLength-_ownedComment.0" annotatedElement="Style-strokeDashLength">
+           <body>a list of real numbers specifying a pattern of alternating dash and gap lengths used in stroking the outline of a graphical element with the first one specifying a dash length. The size of the list is expected to be even. If the list is empty, the stroke is drawn solid. The default is empty list.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Real"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Real"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="Style-fontSize" name="fontSize" visibility="public" lower="0">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Style-fontSize-_ownedComment.0" annotatedElement="Style-fontSize">
+           <body>a real number (>=0) representing the size (in unit of length) of the font used to render a text element. The default is 10.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Real"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Real"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="Style-fontName" name="fontName" visibility="public" lower="0">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Style-fontName-_ownedComment.0" annotatedElement="Style-fontName">
+           <body>the name of the font used to render a text element (e.g. &quot;Times New Roman&quot;, &quot;Arial&quot; or &quot;Helvetica&quot;). The default is &quot;Arial&quot;.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#String"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#String"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="Style-fontColor" name="fontColor" visibility="public" lower="0">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Style-fontColor-_ownedComment.0" annotatedElement="Style-fontColor">
+           <body>the color of the font used to render a text element. The default is black (red=0, green=0, blue=0).</body>
+         </ownedComment>
+-        <type xmi:type="cmof:DataType" href="DC.cmof#Color"/>
++        <type xmi:type="cmof:DataType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Color"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="Style-fontItalic" name="fontItalic" visibility="public" lower="0">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Style-fontItalic-_ownedComment.0" annotatedElement="Style-fontItalic">
+           <body>whether the font used to render a text element has an &lt;i>italic&lt;/i> style. The default is false.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Boolean"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Boolean"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="Style-fontBold" name="fontBold" visibility="public" lower="0">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Style-fontBold-_ownedComment.0" annotatedElement="Style-fontBold">
+           <body>whether the font used to render a text element has a &lt;b>bold&lt;/b> style. The default is false.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Boolean"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Boolean"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="Style-fontUnderline" name="fontUnderline" visibility="public" lower="0">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Style-fontUnderline-_ownedComment.0" annotatedElement="Style-fontUnderline">
+           <body>whether the font used to render a text element has an &lt;b>underline&lt;/b> style. The default is false.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Boolean"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Boolean"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="Style-fontStrikeThrough" name="fontStrikeThrough" visibility="public" lower="0">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Style-fontStrikeThrough-_ownedComment.0" annotatedElement="Style-fontStrikeThrough">
+           <body>whether the font used to render a text element has a &lt;b>strike-through&lt;/b> style. The default is false.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Boolean"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Boolean"/>
+       </ownedAttribute>
+     </ownedMember>
+     <ownedMember xmi:type="cmof:Association" xmi:id="A_localStyle_styledElement" name="A_localStyle_styledElement" visibility="private" memberEnd="GraphicalElement-localStyle A_localStyle_styledElement-styledElement">
+@@ -705,37 +705,37 @@
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Matrix-a-_ownedComment.0" annotatedElement="Matrix-a">
+           <body>the a value of the transform matrix.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Real"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Real"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="Matrix-b" name="b" visibility="public" datatype="Matrix">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Matrix-b-_ownedComment.0" annotatedElement="Matrix-b">
+           <body>the b value of the transform matrix.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Real"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Real"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="Matrix-c" name="c" visibility="public" datatype="Matrix">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Matrix-c-_ownedComment.0" annotatedElement="Matrix-c">
+           <body>the c value of the transform matrix.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Real"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Real"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="Matrix-d" name="d" visibility="public" datatype="Matrix">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Matrix-d-_ownedComment.0" annotatedElement="Matrix-d">
+           <body>the d value of the transform matrix.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Real"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Real"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="Matrix-e" name="e" visibility="public" datatype="Matrix">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Matrix-e-_ownedComment.0" annotatedElement="Matrix-e">
+           <body>the e value of the transform matrix.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Real"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Real"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="Matrix-f" name="f" visibility="public" datatype="Matrix">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="Matrix-f-_ownedComment.0" annotatedElement="Matrix-f">
+           <body>the f value of the transform matrix.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Real"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Real"/>
+       </ownedAttribute>
+     </ownedMember>
+     <ownedMember xmi:type="cmof:DataType" xmi:id="PathCommand" name="PathCommand" isAbstract="true">
+@@ -746,7 +746,7 @@
+         <ownedComment xmi:type="cmof:Comment" xmi:id="PathCommand-isRelative-_ownedComment.0" annotatedElement="PathCommand-isRelative">
+           <body>whether the coordinates specified by the command are relative to the current point (when true) or to the origin point of the coordinate system (when false).</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Boolean"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Boolean"/>
+       </ownedAttribute>
+     </ownedMember>
+     <ownedMember xmi:type="cmof:DataType" xmi:id="MoveTo" name="MoveTo" general="PathCommand">
+@@ -757,7 +757,7 @@
+         <ownedComment xmi:type="cmof:Comment" xmi:id="MoveTo-point-_ownedComment.0" annotatedElement="MoveTo-point">
+           <body>a point to move to in the coordinate system</body>
+         </ownedComment>
+-        <type xmi:type="cmof:DataType" href="DC.cmof#Point"/>
++        <type xmi:type="cmof:DataType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Point"/>
+       </ownedAttribute>
+     </ownedMember>
+     <ownedMember xmi:type="cmof:DataType" xmi:id="LineTo" name="LineTo" general="PathCommand">
+@@ -768,7 +768,7 @@
+         <ownedComment xmi:type="cmof:Comment" xmi:id="LineTo-point-_ownedComment.0" annotatedElement="LineTo-point">
+           <body>a point to draw a straight line to from the current point in the coordinate system.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:DataType" href="DC.cmof#Point"/>
++        <type xmi:type="cmof:DataType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Point"/>
+       </ownedAttribute>
+     </ownedMember>
+     <ownedMember xmi:type="cmof:DataType" xmi:id="CubicCurveTo" name="CubicCurveTo" general="PathCommand">
+@@ -779,19 +779,19 @@
+         <ownedComment xmi:type="cmof:Comment" xmi:id="CubicCurveTo-point-_ownedComment.0" annotatedElement="CubicCurveTo-point">
+           <body>a point to draw a cubic bézier curve to from the current point in the coordinate system.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:DataType" href="DC.cmof#Point"/>
++        <type xmi:type="cmof:DataType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Point"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="CubicCurveTo-startControl" name="startControl" visibility="public" datatype="CubicCurveTo">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="CubicCurveTo-startControl-_ownedComment.0" annotatedElement="CubicCurveTo-startControl">
+           <body>the start control point of the cubic bézier curve.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:DataType" href="DC.cmof#Point"/>
++        <type xmi:type="cmof:DataType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Point"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="CubicCurveTo-endControl" name="endControl" visibility="public" datatype="CubicCurveTo">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="CubicCurveTo-endControl-_ownedComment.0" annotatedElement="CubicCurveTo-endControl">
+           <body>the end control point of the cubic bézier curve.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:DataType" href="DC.cmof#Point"/>
++        <type xmi:type="cmof:DataType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Point"/>
+       </ownedAttribute>
+     </ownedMember>
+     <ownedMember xmi:type="cmof:DataType" xmi:id="QuadraticCurveTo" name="QuadraticCurveTo" general="PathCommand">
+@@ -802,13 +802,13 @@
+         <ownedComment xmi:type="cmof:Comment" xmi:id="QuadraticCurveTo-point-_ownedComment.0" annotatedElement="QuadraticCurveTo-point">
+           <body>a point to draw a quadratic bézier curve to from the current point in the coordinate system.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:DataType" href="DC.cmof#Point"/>
++        <type xmi:type="cmof:DataType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Point"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="QuadraticCurveTo-control" name="control" visibility="public" datatype="QuadraticCurveTo">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="QuadraticCurveTo-control-_ownedComment.0" annotatedElement="QuadraticCurveTo-control">
+           <body>the control point of the quadratic bézier curve.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:DataType" href="DC.cmof#Point"/>
++        <type xmi:type="cmof:DataType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Point"/>
+       </ownedAttribute>
+     </ownedMember>
+     <ownedMember xmi:type="cmof:DataType" xmi:id="EllipticalArcTo" name="EllipticalArcTo" general="PathCommand">
+@@ -819,31 +819,31 @@
+         <ownedComment xmi:type="cmof:Comment" xmi:id="EllipticalArcTo-point-_ownedComment.0" annotatedElement="EllipticalArcTo-point">
+           <body>a point to draw an elliptical arc to from the current point in the coordinate system.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:DataType" href="DC.cmof#Point"/>
++        <type xmi:type="cmof:DataType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Point"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="EllipticalArcTo-radii" name="radii" visibility="public" datatype="EllipticalArcTo">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="EllipticalArcTo-radii-_ownedComment.0" annotatedElement="EllipticalArcTo-radii">
+           <body>the two radii of the ellipse from which the arc is created.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:DataType" href="DC.cmof#Dimension"/>
++        <type xmi:type="cmof:DataType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Dimension"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="EllipticalArcTo-rotation" name="rotation" visibility="public" datatype="EllipticalArcTo">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="EllipticalArcTo-rotation-_ownedComment.0" annotatedElement="EllipticalArcTo-rotation">
+           <body>a real number representing a rotation (in degrees) of the ellipse from which the arc is created.</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Real"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Real"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="EllipticalArcTo-isLargeArc" name="isLargeArc" visibility="public" datatype="EllipticalArcTo">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="EllipticalArcTo-isLargeArc-_ownedComment.0" annotatedElement="EllipticalArcTo-isLargeArc">
+           <body>whether the arc sweep is equal to or greater than 180 degrees (the large arc).</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Boolean"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Boolean"/>
+       </ownedAttribute>
+       <ownedAttribute xmi:type="cmof:Property" xmi:id="EllipticalArcTo-isSweep" name="isSweep" visibility="public" datatype="EllipticalArcTo">
+         <ownedComment xmi:type="cmof:Comment" xmi:id="EllipticalArcTo-isSweep-_ownedComment.0" annotatedElement="EllipticalArcTo-isSweep">
+           <body>whether the arc is drawn in a positive-angle direction</body>
+         </ownedComment>
+-        <type xmi:type="cmof:PrimitiveType" href="DC.cmof#Boolean"/>
++        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/DD/20110901/DC.cmof#Boolean"/>
+       </ownedAttribute>
+     </ownedMember>
+     <ownedMember xmi:type="cmof:DataType" xmi:id="ClosePath" name="ClosePath" general="PathCommand">

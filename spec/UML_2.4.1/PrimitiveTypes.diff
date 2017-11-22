@@ -1,0 +1,10 @@
+--- PrimitiveTypes.xmi	2011-12-15 16:31:44.000000000 +0000
++++ PrimitiveTypes.xmi.mine	2014-05-12 14:39:35.000000000 +0100
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <xmi:XMI xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.omg.org/spec/UML/20110701" xmlns:mofext="http://www.omg.org/spec/MOF/20110701">
+-  <uml:Package xmi:type="uml:Package" xmi:id="_0" name="PrimitiveTypes" URI="http://www.omg.org/spec/PrimitiveTypes/20110701">
++  <uml:Package xmi:type="uml:Package" xmi:id="_0" name="PrimitiveTypes" URI="http://www.omg.org/spec/PrimitiveTypes/20110701/Primitivetypes.xmi">
+     <packagedElement xmi:type="uml:PrimitiveType" xmi:id="Boolean" name="Boolean">
+       <ownedComment xmi:type="uml:Comment" xmi:id="Boolean-_ownedComment.0" annotatedElement="Boolean">
+         <body>A Boolean type is used for logical expression, consisting of the predefined values true and false.</body>

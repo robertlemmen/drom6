@@ -1,0 +1,11 @@
+--- L2.xmi	2011-12-15 16:31:44.000000000 +0000
++++ L2.xmi.mine	2014-05-07 13:24:47.000000000 +0100
+@@ -2,7 +2,7 @@
+ <xmi:XMI xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.omg.org/spec/UML/20110701" xmlns:mofext="http://www.omg.org/spec/MOF/20110701">
+   <uml:Package xmi:type="uml:Package" xmi:id="_0" name="L2" URI="http://www.omg.org/spec/UML/20110701">
+     <packageMerge xmi:type="uml:PackageMerge" xmi:id="_packageMerge.0">
+-      <mergedPackage href="http://www.omg.org/spec/UML/20110701L1.xmi#_0"/>
++      <mergedPackage href="http://www.omg.org/spec/UML/20110701/L1.xmi#_0"/>
+     </packageMerge>
+     <packageMerge xmi:type="uml:PackageMerge" xmi:id="_packageMerge.1">
+       <mergedPackage href="http://www.omg.org/spec/UML/20110701/Superstructure.xmi#Actions-IntermediateActions"/>

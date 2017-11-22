@@ -1,0 +1,9 @@
+--- DC.cmof.orig	2014-05-09 14:58:35.000000000 +0100
++++ DC.cmof	2014-05-09 14:59:47.000000000 +0100
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:cmof="http://schema.omg.org/spec/MOF/2.0/cmof.xml">
++<xmi:XMI xmi:version="2.1" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:cmof="http://schema.omg.org/spec/MOF/2.0/cmof.xml">
+   <cmof:Package xmi:id="_0" name="DC" uri="http://www.omg.org/spec/DD/20110901/DC">
+     <ownedComment xmi:type="cmof:Comment" xmi:id="_ownedComment.0" annotatedElement="_0">
+       <body>The Diagram Common (DC) package contains abstractions shared by the Diagram Interchange and the Diagram Graphics packages.</body>
